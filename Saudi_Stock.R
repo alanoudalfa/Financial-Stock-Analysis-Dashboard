@@ -37,10 +37,11 @@ write.csv(stocks_analysis,
           "Stocks_Cleaned.csv", row.names = FALSE)
 library(prophet)
 df_forecast<-stocks %>%
-  filter(Name=="Riyad Bank")%>%
+  filter(Name=="RIYAD BANK")%>%
   select(ds=Date,y=Close)
 m<-prophet(df_forecast)
 future<-make_future_dataframe(m,
                               periods = 30)
 forecast<-predict(m,future)
 plot(m,forecast)
+
